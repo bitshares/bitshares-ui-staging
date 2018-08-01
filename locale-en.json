@@ -314,6 +314,8 @@
                 "Number of feed producers exceeded the max allowed (%(max)s).",
             "transfer_restricted": "Issuer must approve all transfers",
             "update_owner": "Update owner",
+            "update_owner_text":
+                "The asset owner may change the owner to another account using this form:",
             "visible": "Hide asset from search and markets",
             "white_list": "Require holders to be white-listed",
             "witness_fed_asset": "Allow witnesses to provide feeds"
@@ -366,6 +368,7 @@
             "remove_committee": "Remove",
             "remove_witness": "Remove",
             "save_finish": "Click save to finish",
+            "set_proxy": "Set a proxy here",
             "start": "Start date",
             "status": {
                 "neutral": "Neutral",
@@ -412,8 +415,12 @@
         "browser": "Unsupported browser",
         "browser_text":
             "The Browser you are using has not been fully tested to support the %(wallet_name)s Wallet. We highly recommend that you backup your local wallet and import it using the Chrome Browser until we have had more time to fully test your browser of choice. Use at your own risk.",
+        "check_latency": "Running latency checks...",
+        "check_latency_feedback":
+            "Running latency checks (%(pinged)s/%(totalToPing)s nodes) ...",
         "connected": "Connected",
         "connecting": "Connecting to API server: %(server)s",
+        "database": "Connection established, initializing local databases",
         "not_connected": "Not connected",
         "retry": "Retry",
         "title": "Application initialization issues",
@@ -426,22 +433,26 @@
         "call_limit": "Market Call Limit",
         "close": "Close position",
         "coll_ratio": "Ratio",
+        "coll_ratio_target": "Target Ratio",
+        "enable_target_collateral_ratio": "Use Target Collateral Ratio",
         "errors": {
             "below":
                 "Your collateral ratio is below %(mr)s which is not allowed.",
+            "below_info":
+                "Your position is below the required maintenance collateral ratio! Increasing collateral ratio is allowed, debt can only be decreased.",
             "below_ratio_mcr_update":
                 "Your collateral ratio is blow your original %(ocr)s. Only increased ratio is allowed on margin called orders",
-            "increased_debt_on_margin_call":
-                "You increased your debt, which is not allowed when updating a margin called position",
             "close":
                 "Your collateral ratio is close to %(mr)s which means this position is in danger of being margin called if the price drops.",
             "collateral": "Insufficient collateral balance",
-            "below_info": "Your position is below the required maintenance collateral ratio! Increasing collateral ratio is allowed, debt can only be decreased."
+            "increased_debt_on_margin_call":
+                "You increased your debt, which is not allowed when updating a margin called position"
         },
         "maximize_debt_set_ratio_slider":
             "You must set a collateral ratio before being able to maximize debt",
         "no_valid": "No valid feeds for %(asset_symbol)s",
         "pay_max_debt": "Pay Max Debt",
+        "target_collateral_ratio": "Target Collateral Ratio",
         "title": "%(asset_symbol)s Margin",
         "update": "Update",
         "use_max": "Use Max"
@@ -451,6 +462,17 @@
         "money_received_title": "Transfer from %(from)s"
     },
     "cancel": "Cancel",
+    "connection": {
+        "automatic_reconnect":
+            " After %(reconnect_in_seconds)s seconds a reconnection attempt will be made automatically.",
+        "manual_ping": "Go to ping nodes",
+        "manual_reconnect": "Try reconnecting now",
+        "out_of_sync":
+            "Your connection has been out of sync for %(out_of_sync_seconds)s seconds.",
+        "title_out_of_sync": "Connection out of sync",
+        "want_to_reconnect":
+            "If the connection can be recovered this message will disappear automatically."
+    },
     "counterpart": {
         "formats": {
             "date": {
@@ -461,16 +483,6 @@
             }
         }
     },
-    "connection": {
-        "title_out_of_sync": "Connection out of sync",
-        "out_of_sync":
-            "Your connection has been out of sync for %(out_of_sync_seconds)s seconds.",
-        "want_to_reconnect":
-            "If the connection can be recovered this message will disappear automatically.",
-        "automatic_reconnect":
-            " After %(reconnect_in_seconds)s seconds a reconnection attempt will be made automatically.",
-        "manual_reconnect": "Reconnect now"
-    },
     "dashboard": {
         "featured_markets": "Featured Markets",
         "starred_markets": "Starred Markets",
@@ -478,6 +490,7 @@
         "top_markets": "Top Markets"
     },
     "exchange": {
+        "add_quote": "Add",
         "asks": "Sell orders",
         "atr": "Average True Range",
         "balance": "Balance",
@@ -504,6 +517,7 @@
         "confirm_sell":
             "Your order is %(diff)s times lower than the highest bid, are you sure?",
         "core_rate": "Fee Rate",
+        "custom_quote": "Add a custom quote",
         "deposit": "Deposit",
         "description": "Description",
         "ema": "Exponential Moving Average",
@@ -540,6 +554,8 @@
             "use": "Use"
         },
         "more": "Find markets",
+        "move_down": "Move down",
+        "move_up": "Move up",
         "my_asks": "My asks",
         "my_bids": "My bids",
         "my_history": "My trades",
@@ -561,8 +577,10 @@
         "price_market": "Market Price",
         "quantity": "Quantity",
         "quote": "Quote currency:",
+        "quote_selection": "Modify quote selection",
         "quote_supply": "Quote supply",
         "receive": "Receive",
+        "remove": "Remove",
         "rsi": "Relative Strength Index",
         "search": "Search for more markets here",
         "sell": "Sell",
@@ -574,6 +592,7 @@
         "short": "Short",
         "show_asks": "Show all asks",
         "show_bids": "Show all bids",
+        "show_only_liquid": "Show liquid markets only",
         "show_only_star_formatter": "Show {star_icon} only",
         "sma": "Simple Moving Average",
         "spread": "Spread",
@@ -601,17 +620,28 @@
             "title": "Accounts"
         },
         "asset": {
+            "actions": "Asset actions",
             "fee_pool": {
+                "claim_balance": "Claim fee pool balance",
                 "claim_fees": "Claim fees",
+                "claim_pool_text":
+                    "The asset owner may withdraw funds from the fee pool using this form:",
                 "claim_text":
                     "The asset issuer may claim any accumulated fees here.",
                 "core_exchange_rate": "Core exchange rate (CER)",
+                "fund": "Fund the fee pool",
                 "fund_text":
-                    "The fee pool is used to pay fees in %(core)s by converting the fee in %(asset)s to %(core)s. If the fee pool runs out of funds, fees may no longer be paid in %(asset)s and will default to %(core)s",
+                    "Anyone can add %(core)s to the fee pool balance using this form:",
                 "pool_balance": "Pool balance",
+                "pool_text":
+                    "The fee pool is used to pay fees in %(core)s by converting the fee in %(asset)s to %(core)s. If the fee pool runs out of funds, fees may no longer be paid in %(asset)s and will default to %(core)s.<br/><br/>The core exchange rate is the price at which %(asset)s are converted to %(core)s.",
                 "title": "Fee Pool",
                 "unclaimed_issuer_income": "Unclaimed issuer income"
             },
+            "feed_producer": "Feed producer",
+            "feed_producer_text":
+                "Approved feed producers may publish a new feed using the form below:",
+            "info": "Asset info",
             "invalid": "The asset name %(name)s is invalid",
             "margin_positions": {
                 "title": "Margin positions"
@@ -971,10 +1001,10 @@
         "scan_qr_code": "Scan QR code"
     },
     "header": {
-        "accounts_manage": "Manage Accounts",
         "account": "Account",
         "account_notify": "The active account is now %(account)s",
         "account_value": "Account value",
+        "accounts_manage": "Manage Accounts",
         "collateral_ratio": "Collateral ratio",
         "create_account": "Create Account",
         "create_asset": "Create Asset",
@@ -1002,7 +1032,6 @@
         "update_asset": "Update Asset"
     },
     "icons": {
-        "manage_accounts": "Manage Accounts",
         "adjust": "Adjust margin position",
         "assets": "Assets",
         "checkmark_circle": {
@@ -1066,6 +1095,7 @@
             "common": "Click to unlock your account",
             "enable_auto_scroll": "Enable auto scroll"
         },
+        "manage_accounts": "Manage Accounts",
         "minus_circle": {
             "disapproved": "Disapproved",
             "no": "No",
@@ -1275,8 +1305,6 @@
         "asset_reserve": "{account} burned (reserved) {amount}",
         "asset_settle": "{account} requested settlement of {amount}",
         "asset_settle_cancel": "{account} cancelled settlement of {amount}",
-        "asset_claim_pool":
-            "{account} claimed {amount} from asset {asset}'s fee pool",
         "asset_update": "{account} updated the asset {asset}",
         "asset_update_feed_producers":
             "{account} updated the feed producers for the asset {asset}",
@@ -1406,7 +1434,7 @@
         "always_confirm": "Always ask for confirmation",
         "apiServer": "Full node API server",
         "api_closest": "Choose closest automatically",
-        "automatic": "Automatically select node (%(totalNodes)s available)",
+        "automatic": "Automatically select node (%(totalNodes)s listed)",
         "automatic_short": "Automatic Switching",
         "available_nodes": "Available",
         "backup": "Backup",
@@ -1470,6 +1498,8 @@
         "password": "Password",
         "passwordLogin": "Login mode",
         "password_text": "Change your password.",
+        "personal_active":
+            "Your only personal node is active, to remove or modify it you must first connect to a different node",
         "ping": "Ping Nodes",
         "pinging": "Pinging ...",
         "remove": "Remove",
@@ -1488,7 +1518,11 @@
         "show": "Show",
         "showAssetPercent": "Show asset percentages on the account page",
         "showSettles": "Show settle orders in depth chart",
+        "skipped": "Skipped",
         "switch": "Switch Node",
+        "testnet_nodes": "Testnet",
+        "testnet_nodes_disclaimer":
+            "Availability of the testnet is not guaranteed. Establish a connection by connected manually to one of the nodes below:",
         "themes": "Theme",
         "unit": "Preferred unit of account",
         "valid_node_url": "Node URL must begin with ws:// or wss://",
@@ -1558,6 +1592,10 @@
         "propose_scam":
             "This proposal was created by a known scammer, do not approve it!",
         "propose_tip": "Propose another user to initiate a transaction",
+        "proxy_remove":
+            "You have a proxy set, to remove it simply clear this input field",
+        "proxy_search":
+            "Search for an account to be used as your proxy for voting",
         "settle":
             "Settling will let you convert your holdings of %(asset)s to BTS after a delay of 24 hours, at a price equal to the feed price at that time.",
         "settle_price":
@@ -1570,6 +1608,8 @@
         "sync_no":
             "The current node is out of sync with the blockchain, try switching to another one",
         "sync_yes": "The current node is in sync with the blockchain",
+        "target_collateral_ratio":
+            "Setting a target collateral ratio can help with not selling all of the posision at once.<br /><br /><strong>Sell as little by setting target below MCR (ex. 1.5)</strong><br /><br /><strong>Sell as little but decrease possible margin calls again by setting it higher than MCR (ex. 3)",
         "transfer_actions":
             "Click here to make a transfer, or to deposit/withdraw those assets that support it.",
         "update_position":
@@ -1605,6 +1645,7 @@
         "coll_of": "with collateral of",
         "coll_ratio": "Initial collateral ratio",
         "collateral": "Collateral",
+        "collateral_target": "Target Collateral",
         "committee_member_create": "Created the committee member",
         "confirm": "Please confirm the transaction",
         "create_key": "Created a public key",
@@ -1667,6 +1708,7 @@
             "account_whitelist": "Account whitelist",
             "all": "Show all",
             "assert": "Assert operation",
+            "asset_claim_fee_pool": "Claim fee pool balance",
             "asset_claim_fees": "Claim asset fees",
             "asset_claim_pool": "Claim asset fee pool",
             "asset_create": "Create asset",
@@ -1776,6 +1818,11 @@
     "trx_error": {
         "expire":
             "Your transaction has expired without being confirmed, please try again later."
+    },
+    "utility": {
+        "total_x_assets": "Total of %(count)s assets",
+        "total_x_items": "Total of %(count)s items",
+        "total_x_operations": "Total of %(count)s operations"
     },
     "walkthrough": {
         "buy_form": "Place buy orders using this form.",

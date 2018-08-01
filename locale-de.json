@@ -318,6 +318,8 @@
                 "Number of feed producers exceeded the max allowed (%(max)s).",
             "transfer_restricted": "Herauseber muss alle Transfers genehmigen",
             "update_owner": "Eigentümer aktualisieren",
+            "update_owner_text":
+                "The asset owner may change the owner to another account using this form:",
             "visible": "Hide asset from search and markets",
             "white_list": "Setze Whitelisting eines Eigentümers voraus",
             "witness_fed_asset": "Erlaube Witnesses einen Feed bereit zustellen"
@@ -370,6 +372,7 @@
             "remove_committee": "Entfernen",
             "remove_witness": "Entfernen",
             "save_finish": "Click save to finish",
+            "set_proxy": "Set a proxy here",
             "start": "Start Datum",
             "status": {
                 "neutral": "Neutral",
@@ -417,8 +420,12 @@
         "browser": "Nicht unterstützter Browser",
         "browser_text":
             "Ihr Browser ist unzureichend mit der BitShares-Wallet getestet worden. Wir empfehlen Ihnen, eine Sicherung ihrer Geldbörse durchzuführen und diese in den Chrome Browser zu importieren. Nutzen Sie Ihren Browser auf eigene Gefahr!",
+        "check_latency": "Running latency checks...",
+        "check_latency_feedback":
+            "Running latency checks (%(pinged)s/%(totalToPing)s nodes) ...",
         "connected": "verbunden",
         "connecting": "Connecting to API server: %(server)s",
+        "database": "Connection established, initializing local databases",
         "not_connected": "Nicht verbunden",
         "retry": "nocheinmal versuchen",
         "title": "Initialisierungsfehler",
@@ -431,16 +438,25 @@
         "call_limit": "Markt Call Limit",
         "close": "Position schlißen",
         "coll_ratio": "Kollateral-Ratio",
+        "coll_ratio_target": "Target Ratio",
+        "enable_target_collateral_ratio": "Use Target Collateral Ratio",
         "errors": {
             "below": "Kollateral-Ratio unter Aufrechterhaltungslevel",
+            "below_info":
+                "Your position is below the required maintenance collateral ratio! Increasing collateral ratio is allowed, debt can only be decreased.",
+            "below_ratio_mcr_update":
+                "Your collateral ratio is blow your original %(ocr)s. Only increased ratio is allowed on margin called orders",
             "close":
                 "Your collateral ratio is close to %(mr)s which means this position is in danger of being margin called if the price drops.",
-            "collateral": "Unzureichendes Kollateral"
+            "collateral": "Unzureichendes Kollateral",
+            "increased_debt_on_margin_call":
+                "You increased your debt, which is not allowed when updating a margin called position"
         },
         "maximize_debt_set_ratio_slider":
             "You must set a collateral ratio before being able to maximize debt",
         "no_valid": "Kein gültiger Feed-Preis für %(asset_symbol)s",
         "pay_max_debt": "Pay Max Debt",
+        "target_collateral_ratio": "Target Collateral Ratio",
         "title": "Kollateral Position für %(asset_symbol)s",
         "update": "Aktualisieren",
         "use_max": "Use Max"
@@ -450,6 +466,17 @@
         "money_received_title": "Übertragen von %(from)s"
     },
     "cancel": "abbrechen",
+    "connection": {
+        "automatic_reconnect":
+            " After %(reconnect_in_seconds)s seconds a reconnection attempt will be made automatically.",
+        "manual_ping": "Go to ping nodes",
+        "manual_reconnect": "Reconnect now",
+        "out_of_sync":
+            "Your connection has been out of sync for %(out_of_sync_seconds)s seconds.",
+        "title_out_of_sync": "Connection out of sync",
+        "want_to_reconnect":
+            "If the connection can be recovered this message will disappear automatically."
+    },
     "counterpart": {
         "formats": {
             "date": {
@@ -467,6 +494,7 @@
         "top_markets": "Top Markets"
     },
     "exchange": {
+        "add_quote": "Add",
         "asks": "Asks",
         "atr": "Average True Range",
         "balance": "Guthaben",
@@ -493,6 +521,7 @@
         "confirm_sell":
             "Your order is %(diff)s times lower than the highest bid, are you sure?",
         "core_rate": "Gebührenrate",
+        "custom_quote": "Add a custom quote",
         "deposit": "Deposit",
         "description": "Description",
         "ema": "Exponential Moving Average",
@@ -529,6 +558,8 @@
             "use": "Use"
         },
         "more": "Alle Märkte",
+        "move_down": "Move down",
+        "move_up": "Move up",
         "my_asks": "Meine Asks",
         "my_bids": "Meine Bids",
         "my_history": "Meine Historie",
@@ -550,8 +581,10 @@
         "price_market": "Market Price",
         "quantity": "Quantität",
         "quote": "Quote currency:",
+        "quote_selection": "Modify quote selection",
         "quote_supply": "Quote Verfügbarkeit",
         "receive": "Empfangen",
+        "remove": "Remove",
         "rsi": "Relative Strength Index",
         "search": "Search for more markets here",
         "sell": "Verkaufen",
@@ -563,6 +596,7 @@
         "short": "Short",
         "show_asks": "Show all asks",
         "show_bids": "Show all bids",
+        "show_only_liquid": "Show liquid markets only",
         "show_only_star_formatter": "Show {star_icon} only",
         "sma": "Simple Moving Average",
         "spread": "Spread",
@@ -590,18 +624,29 @@
             "title": "Konten"
         },
         "asset": {
+            "actions": "Asset actions",
             "fee_pool": {
+                "claim_balance": "Claim fee pool balance",
                 "claim_fees": "Gebühren beanspruchen",
+                "claim_pool_text":
+                    "The asset owner may withdraw funds from the fee pool using this form:",
                 "claim_text":
                     "Der Asset-Herausgeber kann die zusammengetragenen Anteile hier beanspruchen",
                 "core_exchange_rate": "Kernhandelsrate",
+                "fund": "Fund the fee pool",
                 "fund_text":
                     "Der Gebührenpool wird dazu genutzt Gebühren in %(core)s durch einen impliziten Wechsel von %(asset)s zu %(core)s zu finanzieren. Sollte der Gebührenpool trocken liegen, können Gebühren nicht länger in %(asset)s bezahlt werden sondern nur noch in %(core)s",
                 "pool_balance": "Pool-Guthaben",
+                "pool_text":
+                    "The fee pool is used to pay fees in %(core)s by converting the fee in %(asset)s to %(core)s. If the fee pool runs out of funds, fees may no longer be paid in %(asset)s and will default to %(core)s.<br/><br/>The core exchange rate is the price at which %(asset)s are converted to %(core)s.",
                 "title": "Fee Pool",
                 "unclaimed_issuer_income":
                     "Nicht ausgezahlte Herausgeberanteile"
             },
+            "feed_producer": "Feed producer",
+            "feed_producer_text":
+                "Approved feed producers may publish a new feed using the form below:",
+            "info": "Asset info",
             "invalid": "The asset name %(name)s is invalid",
             "margin_positions": {
                 "title": "Margin positions"
@@ -961,10 +1006,10 @@
         "scan_qr_code": "Scan QR code"
     },
     "header": {
-        "accounts_manage": "Konten verwalten",
         "account": "Konto",
         "account_notify": "The active account is now %(account)s",
         "account_value": "Kontowert",
+        "accounts_manage": "Konten verwalten",
         "collateral_ratio": "Collateral ratio",
         "create_account": "Konto erstellen",
         "create_asset": "Asset erstellen",
@@ -990,7 +1035,6 @@
         "update_asset": "Asset ändern"
     },
     "icons": {
-        "accounts_manage": "Konten verwalten",
         "adjust": "Adjust margin position",
         "assets": "Assets",
         "checkmark_circle": {
@@ -1054,6 +1098,7 @@
             "common": "Click to unlock your account",
             "enable_auto_scroll": "Enable auto scroll"
         },
+        "manage_accounts": "Manage Accounts",
         "minus_circle": {
             "disapproved": "Disapproved",
             "no": "No",
@@ -1455,7 +1500,10 @@
         "password": "Password",
         "passwordLogin": "Login using the account model",
         "password_text": "Change your password.",
+        "personal_active":
+            "Your only personal node is active, to remove or modify it you must first connect to a different node",
         "ping": "Ping Nodes",
+        "pinging": "Pinging ...",
         "remove": "Remove",
         "remove_api": "Remove Node",
         "remove_ws": "Websocket API entfernen",
@@ -1472,7 +1520,11 @@
         "show": "Show",
         "showAssetPercent": "Show asset percentages on the account page",
         "showSettles": "Settlements in der Depth-Chart anzeigen",
+        "skipped": "Skipped",
         "switch": "Switch Node",
+        "testnet_nodes": "Testnet",
+        "testnet_nodes_disclaimer":
+            "Availability of the testnet is not guaranteed. Establish a connection by connected manually to one of the nodes below:",
         "themes": "Theme",
         "unit": "Bevorzugte Rechnungseinheit",
         "valid_node_url": "Node URL must begin with ws:// or wss://",
@@ -1542,6 +1594,10 @@
         "propose_scam":
             "This proposal was created by a known scammer, do not approve it!",
         "propose_tip": "Propose another user to initiate a transaction",
+        "proxy_remove":
+            "You have a proxy set, to remove it simply clear this input field",
+        "proxy_search":
+            "Search for an account to be used as your proxy for voting",
         "settle":
             "Settling will let you convert your holdings of %(asset)s to BTS after a delay of 24 hours, at a price equal to the feed price at that time.",
         "settle_price":
@@ -1554,6 +1610,8 @@
         "sync_no":
             "The current node is out of sync with the blockchain, try switching to another one",
         "sync_yes": "The current node is in sync with the blockchain",
+        "target_collateral_ratio":
+            "Setting a target collateral ratio can help with not selling all of the posision at once.<br /><br /><strong>Sell as little by setting target below MCR (ex. 1.5)</strong><br /><br /><strong>Sell as little but decrease possible margin calls again by setting it higher than MCR (ex. 3)",
         "transfer_actions":
             "Click here to make a transfer, or to deposit/withdraw those assets that support it.",
         "update_position":
@@ -1590,6 +1648,7 @@
         "coll_of": "mit einer Sicherheit bestehend aus",
         "coll_ratio": "Anfängliche Sicherheit (Verhältnis)",
         "collateral": "Sicherheit/Pfand",
+        "collateral_target": "Target Collateral",
         "committee_member_create": "Komitee-Mitglied erstellen",
         "confirm": "Bitte bestätigen Sie die Transaktion",
         "create_key": "Ein öffentlicher Schlüssel wurde erzeugt",
@@ -1652,6 +1711,7 @@
             "account_whitelist": "Konto-Positivliste",
             "all": "Show all",
             "assert": "Operation bestätigen",
+            "asset_claim_fee_pool": "Claim fee pool balance",
             "asset_claim_fees": "Gebühr für 'Asset beanspruchen'",
             "asset_claim_pool": "Claim asset fee pool",
             "asset_create": "Asset erstellen",
@@ -1763,6 +1823,11 @@
         "expire":
             "Your transaction has expired without being confirmed, please try again later."
     },
+    "utility": {
+        "total_x_assets": "Total of %(count)s assets",
+        "total_x_items": "Total of %(count)s items",
+        "total_x_operations": "Total of %(count)s operations"
+    },
     "walkthrough": {
         "buy_form": "Platzieren Sie Kaufaufträge über dieses Formular.",
         "buy_orders": "Sehen Sie alle Kaufaufträge für diesen Markt an.",
@@ -1801,10 +1866,6 @@
     },
     "wallet": {
         "accept": "Zustimmen",
-        "account_create_wallet_text":
-            "This password will be used to create a new BitShares local wallet for you, which will only be stored locally in your browser. A BitShares wallet can contain multiple accounts and can be easily transferred between browsers and computers using a backup file.",
-        "account_exp":
-            "This account will be created on the blockchain and will be your address for any transfers you want to make! <strong>There are no long Bitcoin-style addresses in BitShares!</strong>",
         "account_public": "Account Name (Public)",
         "active_wallet": "Active Geldbörse",
         "all_set": "You're all set!",
@@ -1835,8 +1896,6 @@
         "brainkey_w2": "Jeder mit Zugang zu diesem Schlüssel wird",
         "brainkey_w3": "Zugang zu Ihren Finanzen in dieser Geldbörse erhalten",
         "bts_09_export": "BTS 0.9.3c key export file (.json)",
-        "bts_rules":
-            "The first rule of Bitshares is: Do not lose your password.<br/>The second rule of Bitshares is: Do not lose your password.<br />The third rule of Bitshares is: We cannot recover your password.<br />The fourth rule: If you can remember the password, it's not secure.<br />The fifth rule: Use only randomly-generated passwords.<br />The sixth rule: Do not tell anyone your password.<br />The seventh rule: Always back up your password.",
         "cancel": "Abbrechen",
         "change": "Wechsele Geldbörse (%(name)s)",
         "change_backup":
@@ -2018,7 +2077,6 @@
             "<li>Multiple accounts</li><li>Wallet file backup required</li><li>High security</li>",
         "wallet_move":
             "This backup file can also be used to move your local wallet to different computers or different browsers. In order to restore your local wallet using this backup <strong>you will also need your password!</strong>",
-        "wallet_new": "New BitShares account",
         "wallet_password": "Login anywhere using your password"
     },
     "winex": {
