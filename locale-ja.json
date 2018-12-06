@@ -20,6 +20,7 @@
         "contacts": "連絡先",
         "create_account": "アカウント作成",
         "create_new": "新しいアカウントを作成する",
+        "deactivate_suspicious_proposals": "Deactivate suspicious proposals",
         "deposit": "BTSをデポジットする",
         "deposit_address": "あなたのデポジットアドレスはあなたのアカウント名です。",
         "deposit_withdraw": "入金 / 出金",
@@ -132,6 +133,8 @@
             "brain": "ブレインキーの位置",
             "cancel": "キャンセル",
             "confirm_add": "追加",
+            "create_paperwallet": "Create Paper Wallet",
+            "create_paperwallet_private_hint": "Unlock/Login before creating the paper wallet to include private keys",
             "from": "アカウントからインポート",
             "key": "キー/名前",
             "key_viewer": "秘密キービューア",
@@ -422,6 +425,7 @@
         "close": "ポジションを閉じる",
         "coll_ratio": "担保比率",
         "coll_ratio_target": "Target Ratio",
+        "considered_on_revival": "Included",
         "enable_target_collateral_ratio": "Use Target Collateral Ratio",
         "errors": {
             "below": "あなたの担保比率は%(mr)s未満であり、許可されません。",
@@ -502,6 +506,7 @@
         "feed_price": "フィード価格",
         "filter": "フィルター",
         "flip": "ひっくり返す",
+        "global_settle": "Global Settlement",
         "group_order_limit": "グループ",
         "hide": "非表示",
         "highest_bid": "最高ビッド価格",
@@ -647,7 +652,10 @@
             }
         },
         "settle": "決済",
+        "settle_globally_settled": "Settle instantly",
+        "settle_globally_settled_tooltip": "This asset is globally settled. You can settle it instantly for the global settlement price (see exchange header or asset details)",
         "settle_orders": "決済注文",
+        "settlement_hint": "You are attempting to settle {long}. Here is a price break down of {market_link}:",
         "short": "ショート",
         "show_all_orders": "Show all %(rowcount)s orders",
         "show_all_trades": "Show all %(rowcount)s trades",
@@ -683,6 +691,18 @@
         },
         "asset": {
             "actions": "Asset actions",
+            "collateral": {
+                "bid": "Bid Collateral",
+                "bid_price": "Bid price",
+                "bid_text": "Unfortunately, %(asset)s is in Global Settlement. During this time it is possible to bid on the collateral in the Settlement Fund and the debt it covers. When the total outstanding debt is covered by bids, and the additional collateral of each bid plus its share from the settlement fund is greater than the MCR, the asset is automatically revived and a margin position is created for each bid.",
+                "remove_bid": "A bid can be removed by placing a zero collateral bid."
+            },
+            "collateral_bid": {
+                "bid": "Bid Price",
+                "collateral": "Additional Collateral",
+                "debt": "Debt Covered",
+                "title": "Collateral Bids"
+            },
             "fee_pool": {
                 "claim_balance": "Claim fee pool balance",
                 "claim_fees": "手数料を請求",
@@ -714,11 +734,13 @@
                 "whitelist_markets": "ホワイトリストマーケット"
             },
             "price_feed": {
-                "force_settlement_offset": "強制決済オフセット",
+                "external_feed_price": "Feed price (median of witness feeds)",
+                "feed_lifetime": "Feed lifetime (hours)",
                 "global_settlement_price": "Global settlement happens at price",
                 "maintenance_collateral_ratio": "維持担保率 (MCR)",
+                "maximum_short_squeeze_price": "Maximum short squeeze price (MSSP)",
                 "maximum_short_squeeze_ratio": "最大ショート・スクイーズ比率 (MSSR)",
-                "settlement_delay": "決済遅延",
+                "min_feeds": "Minimum feeds",
                 "settlement_price": "決済価格",
                 "title": "価格フィード"
             },
@@ -730,6 +752,28 @@
                 "publisher": "公開者",
                 "settlement_price": "決済価格",
                 "title": "価格フィードデータ"
+            },
+            "settlement": {
+                "current_settled": "Already settled supply",
+                "delay": "Delay",
+                "force_settlement": "Force Settlement",
+                "gs_auto_revive_price": "Auto Revive Price (without/with bids)",
+                "gs_collateral_valuation": "Collateral Valuation (with bids)",
+                "gs_description": "Unfortunately, this asset is in Global Settlement. During this time there is no delay in asset force settlements, which will be covered by the settlement funds at the fixed settlement price.",
+                "gs_included_on_revival": "Bids will be included on revival sorted by their bid price until the whole debt is covered (last bid might be covered partially). Included bids will be converted into margin positions and receive the residual collateral such that the position reaches MCR from the settlement fund. Not included bids will be reimbursed.",
+                "gs_or": "or",
+                "gs_place_bid": "click here to place a bid",
+                "gs_revert": "Reviving",
+                "gs_revive": "Asset will be revived automatically if auto revive price (bids included) is greater than feed price or all debt is force settled",
+                "gs_see_actions": "see Asset actions",
+                "max_settle_volume": "Max. settlement volume each maintenance period",
+                "offset": "offset included",
+                "price": "Price",
+                "settle_remaining_volume": "Remaining settleable volume",
+                "settlement_funds": "Settlement Funds",
+                "settlement_funds_collateral_ratio": "Settlement Fund Collateral Ratio",
+                "settlement_price": "Settlement Price",
+                "title": "Settlement"
             },
             "summary": {
                 "asset_type": "アセット種別",
@@ -749,6 +793,7 @@
             }
         },
         "assets": {
+            "backing_asset": "Backing asset",
             "id": "ID",
             "issuer": "発行者",
             "market": "スマートコイン",
@@ -1071,6 +1116,7 @@
         "payments": "送金",
         "payments_legacy": "送金 (レガシー)",
         "settings": "設定",
+        "showcases": "Spotlight",
         "title": "BitShares UI",
         "unlock": "ログイン (ウォレットをアンロック)",
         "unlock_password": "パスワードでログイン",
@@ -1398,10 +1444,12 @@
         "asset_reserve": "{account}は{amount}を消却 (バーン) しました",
         "asset_settle": "{account}は{amount}の決済を依頼しました",
         "asset_settle_cancel": "{account} cancelled settlement of {amount}",
+        "asset_settle_instant": "{account} settled {amount} instantly at {price}",
         "asset_update": "{account}はアセット{asset}を更新しました",
         "asset_update_feed_producers": "{account}はアセット{asset}のフィード作成者を更新しました",
         "asset_update_issuer": "{from_account} transferred {asset} to {to_account}",
         "balance_claim": "{account}は{amount}を請求しました",
+        "bid_collateral": "{bid_account} bid {collateral} for {debt}",
         "blacklisted_by": "{lister}は{listee}をブラックリストに登録しました",
         "call_order_update": "{account}は{debtSymbol}の賃借を{debt}に、担保を{collateral}に変更しました。",
         "committee_member_update_global_parameters": "{account}はグローバル委員会のパラメータを更新しました",
@@ -1648,6 +1696,32 @@
         "wallets": "ウォレット",
         "yes": "はい"
     },
+    "showcases": {
+        "barter_transaction": {
+            "description": "Allows you to suggest an asset swap with another account, this happens outside the order book and can include an escrow.",
+            "title": "Barter"
+        },
+        "borrow": {
+            "description": "Borrow a BitAsset from the BitShares Blockchain by locking up collateral (e.g. bitUSD, bitCNY, etc.)",
+            "title": "Collaterized Debt Position"
+        },
+        "direct_debit": {
+            "description": "Setup a direct debit mandate for recurring payments. The mandate allows another account to transfer funds out of your account, with a limit on the amount for defined time intervals.",
+            "title": "Direct debit"
+        },
+        "paper_wallet": {
+            "description": "Create a PDF with your account's keys printed (plain text and barcode). If the wallet is unlocked, the private keys are added as well.",
+            "title": "Paper Wallet"
+        },
+        "timed_transfer": {
+            "description": "Initiate a transfer that will execute at a specified time.",
+            "title": "Timed transfer"
+        },
+        "voting": {
+            "description": "Vote on block producers, committee members and worker proposals to influence strategic decisions and advancement of the BitShares Blockchain.",
+            "title": "Voting"
+        }
+    },
     "sync_fail": {
         "sub_text_1": "コンピュータの時計が正しいか確認してください。",
         "sub_text_2": "時計を同期させたらこのページを更新してください。<br/><br/>既に時計が正しい場合は、使用しているAPIサーバーが同期していません。その場合は下のリストから他のサーバーを選んで再試行してください。",
@@ -1674,6 +1748,8 @@
         "follow_user_add": "このユーザーをフォローするにはクリックしてください",
         "gateway": "ゲートウェイはデポジットを100%の実際のアセットでバッキングしています",
         "generate": "生成パスワードはローカルでブラウザによって作成されたものです。 <br /><br /><strong> あなただけがアクセスできます。</strong><br /><br /> 以下の欄に貼り付けて、安全な場所にコピーを保存してください。",
+        "global_settle": "This asset is globally settled. Settling it will let you convert your holdings of %(asset)s to %(backingAsset)s instantly, at the global settlement price (visible in exchange header or asset details page).",
+        "global_settle_price": "This is the price at which settle orders will execute. This asset is globally settled, thus settlement orders will execute instantly",
         "hide_asset": "このリストからこのアセットを非表示にするにはここをクリックしてください。",
         "latest_price": "これはこの市場における最新の価格です。",
         "legacy_explanation": "Hides proposals that are duplicates, spam or have been started but not active for longer than 2 months.",
@@ -1743,6 +1819,7 @@
         "at": "at",
         "balance_id": "残高ID",
         "balance_owner": "残高オーナーキー",
+        "bidder": "Bidder",
         "blinding_factor": "Blinding factor",
         "bond_accept_offer": "承認された債権提案",
         "bond_cancel_offer": "キャンセルされた債権提案",
@@ -1825,6 +1902,7 @@
             "account_whitelist": "アカウントホワイトリスト",
             "all": "すべて表示",
             "assert": "アサート操作",
+            "asset_bid_collateral": "Bid collateral",
             "asset_claim_fee_pool": "Claim fee pool balance",
             "asset_claim_fees": "アセット手数料を請求",
             "asset_claim_pool": "Claim asset fee pool",
@@ -1932,6 +2010,8 @@
         "expire": "あなたのトランザクションは確認されずに期限切れになりました。後でやり直してください。"
     },
     "utility": {
+        "asset_input_placeholder": "Enter asset symbol",
+        "asset_select_placeholder": "Select asset",
         "total_x_assets": "Total of %(count)s assets",
         "total_x_items": "Total of %(count)s items",
         "total_x_markets": "Total of %(count)s markets",
