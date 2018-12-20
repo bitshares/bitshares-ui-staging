@@ -8053,10 +8053,6 @@ div.has-error > input:focus {
   color: #a94442;
 }
 
-.has-error, .facolor-error, .facolor-warning {
-  max-width: 30rem;
-}
-
 .menu-bar.primary > li > a.active {
   background: #414141;
   color: #fff;
@@ -8073,7 +8069,7 @@ div.has-error > input:focus {
 
 a {
   cursor: pointer;
-  color: #008CBA;
+  color: #008cba;
 }
 
 .tabs {
@@ -8102,7 +8098,12 @@ a {
   background: none;
 }
 
-.label, .label.warning, .label.success, .label.info, .label.cancel, .label.alert {
+.label,
+.label.warning,
+.label.success,
+.label.info,
+.label.cancel,
+.label.alert {
   background-color: transparent;
   border: 1px solid #444;
   border-radius: 4px;
@@ -8663,7 +8664,12 @@ button,
   font-style: normal;
 }
 
-.label, .label.warning, .label.success, .label.info, .label.cancel, .label.alert {
+.label,
+.label.warning,
+.label.success,
+.label.info,
+.label.cancel,
+.label.alert {
   font-family: "Roboto-Regular", arial, sans-serif;
   font-weight: normal;
   font-style: normal;
@@ -9287,6 +9293,15 @@ div.tabs-container .action-buttons button {
   font-family: "Roboto-Regular", arial, sans-serif;
   font-weight: normal;
   font-style: normal;
+}
+
+.account-input-style-guide--account-status {
+  float: right;
+  color: #43ac6a;
+}
+
+.account-input-style-guide--account-status--scammer {
+  color: #f04124;
 }
 
 div.divider {
@@ -13547,8 +13562,8 @@ div:last-child .exchange-bordered {
 }
 
 /*
- * Ant Design SCSS Overrides 
- * 
+ * Ant Design SCSS Overrides
+ *
  * These overrides are highly temporary and should be solved as soon as possible
 */
 /* Exchange Overrides */
@@ -13558,10 +13573,6 @@ div:last-child .exchange-bordered {
 
 .market-layout .ant-btn {
   padding: 0 19px !important;
-}
-
-.market-layout .ant-input-wrapper.ant-input-group input {
-  border-radius: 5px 0px 0px 5px !important;
 }
 
 .market-layout .ant-input:focus {
@@ -13618,6 +13629,13 @@ div:last-child .exchange-bordered {
 /* Modal Overrides */
 label.ant-checkbox-wrapper > span {
   text-transform: none !important;
+}
+
+.registration-layout .registration-layout--copy-password-btn {
+  position: absolute;
+  right: 0;
+  border-radius: 0 !important;
+  height: 74px;
 }
 
 .registration-layout .display-none {
@@ -15097,8 +15115,7 @@ label.ant-checkbox-wrapper > span {
 .darkTheme input[type="search"]:not([class*="ant-"]),
 .darkTheme textarea:not([class*="ant-"]),
 .darkTheme input[role="combobox"]:not([class*="ant-"]),
-.darkTheme select[role="combobox"]:not([class*="ant-"]),
-.darkTheme .buy-sell-container .ant-input {
+.darkTheme select[role="combobox"]:not([class*="ant-"]) {
   background-color: #2d2d2d;
   border: 0;
   color: #ffffff;
@@ -15132,11 +15149,7 @@ label.ant-checkbox-wrapper > span {
 .darkTheme select[role="combobox"]:not([class*="ant-"]):hover,
 .darkTheme select[role="combobox"]:not([class*="ant-"]):focus,
 .darkTheme select[role="combobox"]:not([class*="ant-"]):active,
-.darkTheme select[role="combobox"]:not([class*="ant-"]):disabled,
-.darkTheme .buy-sell-container .ant-input:hover,
-.darkTheme .buy-sell-container .ant-input:focus,
-.darkTheme .buy-sell-container .ant-input:active,
-.darkTheme .buy-sell-container .ant-input:disabled {
+.darkTheme select[role="combobox"]:not([class*="ant-"]):disabled {
   background-color: #2d2d2d;
 }
 
@@ -15147,8 +15160,7 @@ label.ant-checkbox-wrapper > span {
 .darkTheme input[type="search"]:not([class*="ant-"]):focus,
 .darkTheme textarea:not([class*="ant-"]):focus,
 .darkTheme input[role="combobox"]:not([class*="ant-"]):focus,
-.darkTheme select[role="combobox"]:not([class*="ant-"]):focus,
-.darkTheme .buy-sell-container .ant-input:focus {
+.darkTheme select[role="combobox"]:not([class*="ant-"]):focus {
   border-color: #aaa;
 }
 
@@ -16315,6 +16327,10 @@ label.ant-checkbox-wrapper > span {
 
 .darkTheme .api-status .high > svg > path {
   fill: #e3745b;
+}
+
+.darkTheme .footer div.footer-status > span.testnet {
+  font-size: 0.85rem;
 }
 
 .darkTheme .footer div.footer-status > span.success {
@@ -17990,8 +18006,7 @@ label.ant-checkbox-wrapper > span {
 .lightTheme input[type="search"]:not([class*="ant-"]),
 .lightTheme textarea:not([class*="ant-"]),
 .lightTheme input[role="combobox"]:not([class*="ant-"]),
-.lightTheme select[role="combobox"]:not([class*="ant-"]),
-.lightTheme .buy-sell-container .ant-input {
+.lightTheme select[role="combobox"]:not([class*="ant-"]) {
   background-color: #ebebeb;
   border: 0;
   color: #242424;
@@ -18025,11 +18040,7 @@ label.ant-checkbox-wrapper > span {
 .lightTheme select[role="combobox"]:not([class*="ant-"]):hover,
 .lightTheme select[role="combobox"]:not([class*="ant-"]):focus,
 .lightTheme select[role="combobox"]:not([class*="ant-"]):active,
-.lightTheme select[role="combobox"]:not([class*="ant-"]):disabled,
-.lightTheme .buy-sell-container .ant-input:hover,
-.lightTheme .buy-sell-container .ant-input:focus,
-.lightTheme .buy-sell-container .ant-input:active,
-.lightTheme .buy-sell-container .ant-input:disabled {
+.lightTheme select[role="combobox"]:not([class*="ant-"]):disabled {
   background-color: #ebebeb;
 }
 
@@ -18040,8 +18051,7 @@ label.ant-checkbox-wrapper > span {
 .lightTheme input[type="search"]:not([class*="ant-"]):focus,
 .lightTheme textarea:not([class*="ant-"]):focus,
 .lightTheme input[role="combobox"]:not([class*="ant-"]):focus,
-.lightTheme select[role="combobox"]:not([class*="ant-"]):focus,
-.lightTheme .buy-sell-container .ant-input:focus {
+.lightTheme select[role="combobox"]:not([class*="ant-"]):focus {
   border-color: #aaa;
 }
 
@@ -19208,6 +19218,10 @@ label.ant-checkbox-wrapper > span {
 
 .lightTheme .api-status .high > svg > path {
   fill: #ea340b;
+}
+
+.lightTheme .footer div.footer-status > span.testnet {
+  font-size: 0.85rem;
 }
 
 .lightTheme .footer div.footer-status > span.success {
@@ -20887,8 +20901,7 @@ label.ant-checkbox-wrapper > span {
 .midnightTheme input[type="search"]:not([class*="ant-"]),
 .midnightTheme textarea:not([class*="ant-"]),
 .midnightTheme input[role="combobox"]:not([class*="ant-"]),
-.midnightTheme select[role="combobox"]:not([class*="ant-"]),
-.midnightTheme .buy-sell-container .ant-input {
+.midnightTheme select[role="combobox"]:not([class*="ant-"]) {
   background-color: #1b1c22;
   border: 0;
   color: #e0e0e0;
@@ -20922,11 +20935,7 @@ label.ant-checkbox-wrapper > span {
 .midnightTheme select[role="combobox"]:not([class*="ant-"]):hover,
 .midnightTheme select[role="combobox"]:not([class*="ant-"]):focus,
 .midnightTheme select[role="combobox"]:not([class*="ant-"]):active,
-.midnightTheme select[role="combobox"]:not([class*="ant-"]):disabled,
-.midnightTheme .buy-sell-container .ant-input:hover,
-.midnightTheme .buy-sell-container .ant-input:focus,
-.midnightTheme .buy-sell-container .ant-input:active,
-.midnightTheme .buy-sell-container .ant-input:disabled {
+.midnightTheme select[role="combobox"]:not([class*="ant-"]):disabled {
   background-color: #1b1c22;
 }
 
@@ -20937,8 +20946,7 @@ label.ant-checkbox-wrapper > span {
 .midnightTheme input[type="search"]:not([class*="ant-"]):focus,
 .midnightTheme textarea:not([class*="ant-"]):focus,
 .midnightTheme input[role="combobox"]:not([class*="ant-"]):focus,
-.midnightTheme select[role="combobox"]:not([class*="ant-"]):focus,
-.midnightTheme .buy-sell-container .ant-input:focus {
+.midnightTheme select[role="combobox"]:not([class*="ant-"]):focus {
   border-color: #aaa;
 }
 
@@ -22105,6 +22113,10 @@ label.ant-checkbox-wrapper > span {
 
 .midnightTheme .api-status .high > svg > path {
   fill: #e3745b;
+}
+
+.midnightTheme .footer div.footer-status > span.testnet {
+  font-size: 0.85rem;
 }
 
 .midnightTheme .footer div.footer-status > span.success {
