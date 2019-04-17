@@ -9962,11 +9962,11 @@ form.order-form .ant-input-group-addon {
 }
 
 .buy-form > div.ant-tabs-bar {
-  border-bottom: 1px solid #258a14 !important;
+  border-bottom: 1px solid #6ba583 !important;
 }
 
 .sell-form > div.ant-tabs-bar {
-  border-bottom: 1px solid #ea340b !important;
+  border-bottom: 1px solid #e3745b !important;
 }
 
 #market-charts > div.Stockcharts__wrapper {
@@ -10357,6 +10357,19 @@ input[type="number"]::-webkit-outer-spin-button {
   font-weight: 500;
   text-transform: uppercase;
   overflow: hidden;
+}
+
+.exchange-content-header.bid,
+.exchange-content-header.ask {
+  padding: 10px;
+}
+
+.exchange-content-header.bid {
+  border-bottom: 1px solid #6ba583 !important;
+}
+
+.exchange-content-header.ask {
+  border-bottom: 1px solid #e3745b !important;
 }
 
 .exchange-padded {
@@ -13566,6 +13579,10 @@ div.registration .generated-password-section {
 
 .direct-debit-table table {
   min-width: 1100px;
+}
+
+.direct-debit-table .ant-table-placeholder {
+  min-height: 140px;
 }
 
 @media (max-width: 750px) {
